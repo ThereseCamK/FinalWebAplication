@@ -4,23 +4,41 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #000;
-    color: lightgray;
+    background-color: peru;
+    color: black;
 }
-.header{
-    background-image: url("");
+.header {
+
+    height: 80px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+
+
+
+}
+.logo{
+    height: 200px;
+    margin: 10px;
+
+}
+.headerText{
+    text-align: center;
+    margin: 20px;
 }
 .container {
+    margin-top: 100px;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-shadow: gray 2px 2px 2px;
 }
 .container p {
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 0.5rem;
     font-weight: normal;
     letter-spacing: 0.1rem;
@@ -29,7 +47,30 @@ body {
 }
 .container p span.typed-text {
     font-weight: bolder;
-    color: hotpink;
+
+    color: white;
+}
+.projects{
+    height: 30vh;
+    width:100vw;
+    text-align: center;
+    box-shadow: black 5px 5px 5px;
+    margin: 10px;
+
+
+
+
+
+
+}
+.about{
+    height: 30vh;
+    width:100vw;
+    text-align: center;
+    box-shadow: black 5px 5px 5px;
+    margin: 10px;
+
+
 }
 .container p span.cursor {
     display: inline-block;
@@ -42,9 +83,9 @@ body {
     animation: none;
 }
 @keyframes blink {
-    0%  { background-color: #ccc; }
-    49% { background-color: #ccc; }
+    0%  { background-color: black; }
+    49% { background-color: black; }
     50% { background-color: transparent; }
     99% { background-color: transparent; }
-    100%  { background-color: #ccc; }
+    100%  { background-color: grey; }
 }
