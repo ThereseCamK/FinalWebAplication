@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebPage</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="Blog/BlogController.js"></script>
+
     <script src="Model.js"></script>
+
+    <script src="Blog/BlogController.js"></script>
+
     <script src="Blog/blogView.js"></script>
+    <link rel="stylesheet" href="Css/style.css">
+
 </head>
 
 
@@ -18,11 +23,30 @@
 
 <script>
     const appDiv = document.getElementById('app');
+    show();
+    function  show(){
+        html = `<div class="header">
 
-    resultText = '';
+                </div>
+            <div class="container">
+    <p>Mine verdier er  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
 
-show();
-    function show(){
+  </div>
+
+
+       `;
+
+        html += `
+        <button onclick="adminShow()"> Admin </button>
+        `;
+
+        appDiv.innerHTML = html;
+    }
+
+
+//adminView
+
+    function adminShow(){
         let html = `
       <button onclick="blogView()"> legg til blogg </button>
       `;
@@ -30,7 +54,9 @@ show();
     }
 
 
+
 </script>
+        <script src="typing.js"></script>
 </body>
 
 </html>
