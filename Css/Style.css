@@ -5,9 +5,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: url("https://www.gorspa.org/wp-content/uploads/Software.jpg");
     color: yellowgreen;
+
+    background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
 .header {
 
@@ -17,7 +18,7 @@ body {
     margin-bottom: 10px;
     background-image: url("https://github.com/ThereseCamK/FinalWebAplication/blob/main/Logo2-removebg-preview.png?raw=true");
     background-size: 160px 130px;
-    background-position: left;
+    background-position: right;
     background-repeat: no-repeat;
 
 }
@@ -32,6 +33,7 @@ body {
 }
 
 .container {
+
     margin-top: 1%;
     height: 100px;
     display: flex;
@@ -114,16 +116,7 @@ img{
     box-sizing: border-box;
 }
 
-.bg-image {
 
-    /* Full height */
-    height: 100vh;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 /* Position text in the middle of the page/image */
 .bg-text {

@@ -7,11 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebPage</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <script src="Model.js"></script>
-
     <script src="Blog/BlogController.js"></script>
-
     <script src="Blog/blogView.js"></script>
     <link rel="stylesheet" href="Css/style.css">
 
@@ -20,20 +17,19 @@
 
 <body>
         <div id="app"></div>
-
-<script>
+        <script src="AboutMe/aboutView.js"></script>
+<script >
     const appDiv = document.getElementById('app');
 
     show();
     function  show(){
 
+
         html = `
-            <div class="bg-image">
+            <div >
             <div onclick="javascript:changePage('admin')" class="header">
 
-                <div class="container">
-                    <p>Mine verdier er  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
-                </div>
+
             </div>
                     <div >
                     ${model.content}
@@ -44,15 +40,22 @@
         appDiv.innerHTML = html;
     }
 
+
 frontpage();
     function frontpage(){
-        html = `
-           <div class="blogs" onclick="changePage('blog')"> <h2> Blog </h2></div>
-           <div class="about" onclick="changePage('about')"> <h2>Om meg </h2> </div>
-        `;
+            html = `
+        <div class="container">
+                        <p>Mine verdier er  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
+                    </div>
+               <div class="blogs" onclick="changePage('blog')"> <h2> Blog </h2></div>
+               <div class="about" onclick="changePage('about')"> <h2>Om meg </h2> </div>
+               <div class="blogs" onclick="changePage('project')"> <h2>Prosjekter </h2> </div>
+                 <div class="about" onclick="changePage('review')"> <h2>Tilbakemeldinger </h2> </div>
+            `;
          model.content = html;
-show()
+        show()
     }
+
 
     function updateView() {
         const page = model.currentPage;
@@ -60,28 +63,40 @@ show()
         if (page === 'about') aboutView();
         if (page === 'blog') showBlogs();
         if (page === 'admin') adminShow();
+        if (page === 'project') adminShow();
+        if (page === 'review') feedback();
 
+    }
+    function aboutView(){
+
+        let html= `
+            <div>
+            <img src="tck-removebg-review.png">
+</div>
+    `;
+        model.content = html;
+        show();
     }
 function changePage(page){
         model.currentPage = page;
         updateView();
 }
 //adminView
-
     function adminShow(){
-        let html = `
+        let html = `<div class="blogs">
 
-      <button onclick="changePage('adminAddBlog')"> legg til blogg </button>
-
+                    <div onclick="changePage('adminAddBlog')"> legg til blogg </div>
+                    </div>
       `;
         model.content = html;
-show()
+        show()
     }
 
 
 
 </script>
-        <script src="typing.js"></script>
+<script src="typing.js"></script>
+
 </body>
 
 </html>

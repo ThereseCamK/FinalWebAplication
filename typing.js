@@ -9,6 +9,7 @@ let textArrayIndex = 0;
 let charIndex = 0;
 
 function type() {
+
     if (charIndex < textArray[textArrayIndex].length) {
         if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
         typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
@@ -22,6 +23,7 @@ function type() {
 }
 
 function erase() {
+
     if (charIndex > 0) {
         if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
         typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
@@ -36,7 +38,8 @@ function erase() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+document.addEventListener("DOMContentLoaded", function() {
+    console.log('denne er kalt')// On DOM Load initiate the effect
     if(textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
