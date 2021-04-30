@@ -23,36 +23,59 @@
 
 <script>
     const appDiv = document.getElementById('app');
+
     show();
     function  show(){
-        html = `<div class="header">
-                    <img src="https://github.com/ThereseCamK/FinalWebAplication/blob/main/Logo2-removebg-preview.png?raw=true" class="logo" onclick="adminShow()"/><br>
-                 </div>
+
+        html = `
+            <div class="bg-image">
+            <div onclick="javascript:changePage('admin')" class="header">
 
                 <div class="container">
                     <p>Mine verdier er  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
                 </div>
-
-                <div class="projects"> <h2>Prosjekter </h2></div>
-                <div class="about"> <h2>Om Meg</h2> </div>
-
-
+            </div>
+                    <div >
+                    ${model.content}
+                    </div>
+            </div>
 
        `;
-
-
-
         appDiv.innerHTML = html;
     }
 
+frontpage();
+    function frontpage(){
+        html = `
+           <div class="blogs" onclick="changePage('blog')"> <h2> Blog </h2></div>
+           <div class="about" onclick="changePage('about')"> <h2>Om meg </h2> </div>
+        `;
+         model.content = html;
+show()
+    }
 
+    function updateView() {
+        const page = model.currentPage;
+        if (page === "adminAddBlog") blogView();
+        if (page === 'about') aboutView();
+        if (page === 'blog') showBlogs();
+        if (page === 'admin') adminShow();
+
+    }
+function changePage(page){
+        model.currentPage = page;
+        updateView();
+}
 //adminView
 
     function adminShow(){
         let html = `
-      <button onclick="blogView()"> legg til blogg </button>
+
+      <button onclick="changePage('adminAddBlog')"> legg til blogg </button>
+
       `;
-        appDiv.innerHTML = html;
+        model.content = html;
+show()
     }
 
 

@@ -10,7 +10,8 @@ function blogView(){
         <button onclick="addBlog()">Legg til </button>
 
         `;
-    appDiv.innerHTML = html;
+     model.content = html;
+show()
 }
 
 function showText(name){
@@ -20,5 +21,23 @@ function showText(name){
         <div>Tittel: ${name.title} </div> <br>
         <div>Beskrivelse: ${name.description}</div>
         `;
-    appDiv.innerHTML = html;
+    model.content = html;
+show()
 }
+
+function showBlogs(){
+    let html=`
+
+        <div class="bg-text">
+
+          <h1>Velkommen til min Blogg</h1>
+          <p>Noen hendelser som skjer i min hverdag</p>
+        </div>
+
+`;
+
+    model.content = html;
+    show()
+
+}
+//UserView
