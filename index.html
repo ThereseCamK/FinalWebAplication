@@ -63,16 +63,23 @@ frontpage();
         if (page === 'about') aboutView();
         if (page === 'blog') showBlogs();
         if (page === 'admin') adminShow();
-        if (page === 'project') adminShow();
+        if (page === 'project') projectShow();
         if (page === 'review') feedback();
 
     }
     function aboutView(){
 
         let html= `
-            <div>
-            <img src="tck-removebg-review.png">
-</div>
+ <div onclick="window.location.reload()"> <h3> Tilbake </h3> </div>
+            <div class="aboutMe">
+                        <div class="aboutText"> <h1>Litt Om Meg</h1>
+                        <p>  Jeg er ei jente som er i Praksis på GET Academy som lærer i programmering <br>
+        Jeg har litt erfaring innenfor Javascript, HTML/CSS, C# og litt i SQL. Trives veldig godt med å utvikle forskjellige type ting. <br>
+        Det som jeg har nå erfart er at man lærer veldig mye av å gjøre, og målet mitt er å gjøre enda mer og bli enda bedre! <br>
+        Nå er jeg ute etter enda mer erfaring og har lyst til å hjelpe deg, med å lage en hjemmeside / app eller lignende ved siden av lærerjobben. <br>
+        Ikke vær redd for å ta kontakt hvis dette kan være interessant eller om du er nyskjerrig.</p>
+                        </div>
+            </div>
     `;
         model.content = html;
         show();
@@ -84,8 +91,9 @@ function changePage(page){
 //adminView
     function adminShow(){
         let html = `<div class="blogs">
-
-                    <div onclick="changePage('adminAddBlog')"> legg til blogg </div>
+<div onclick="window.location.reload()"> <h6> Forsiden </h6> </div>
+                    <h3 onclick="changePage('adminAddBlog')"> legg til blogg </h3><br>
+                    <h3 onclick="changePage('adminAddProject')"> legg til Prosjekt </h3>
                     </div>
       `;
         model.content = html;

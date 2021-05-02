@@ -1,7 +1,7 @@
 
 function blogView(){
     let html = `<div class="blogs">
-
+<div onclick="window.location.reload()"> <h3> Forside </h3> </div>
 
         <div onclick="adminShow()">Tilbake</div><br>
       Tittel:
@@ -21,6 +21,7 @@ show();
 
 function showText(name){
     let html= `<div class="blogs">
+<div onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
         <div onclick="blogView()"> Legg til Ny Blogg</div> 
         <div onclick="adminShow()"> Hjem</div>
         <div>Tittel: ${name.title} </div> <br>
@@ -33,11 +34,11 @@ show()
 
 function showBlogs(){
     let html=` <div>
-                <div onclick="window.location.reload()"> <h3> Tilbake </h3> </div>
+                <div class="chosen" onclick="window.location.reload()"> <h3> Tilbake </h3> </div>
                 <div class="blogs">
             
-                 <h1>Velkommen til min Blogg</h1>
-                 <p>Noen hendelser som skjer i min hverdag</p>
+                 <h1 class="chosen">Velkommen til min Blogg</h1>
+                 <p class="chosen">Noen hendelser som skjer i min hverdag</p>
         </div>
         </div>
          
