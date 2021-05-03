@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 
 
 body {
+
+
     font-family: 'Montserrat', sans-serif;
     background-image: url("https://www.gorspa.org/wp-content/uploads/Software.jpg");
     color: yellowgreen;
@@ -57,7 +60,9 @@ body {
 .blogs{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    overflow: scroll;
+
+    overflow-y: scroll;
+
     height: 40vh;
     width: 80vw;
     padding: 20px;
@@ -72,6 +77,15 @@ body {
 
 
 
+}
+.blogs::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.blogs {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 .description{
     height: 30vh;
@@ -93,6 +107,15 @@ body {
     z-index: 2;
 
 
+}
+.about::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.about {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
  h6:hover{
     color: white;

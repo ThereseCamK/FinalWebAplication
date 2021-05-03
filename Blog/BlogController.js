@@ -15,7 +15,7 @@ async function addBlogData(obj) {
 
     let response = await axios.post('Blog/01_blogCommitment.php', obj);
     showText(response.data);
-
+console.table(response.data)
 
    /* await getBlogData();*/
 
