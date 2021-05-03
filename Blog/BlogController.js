@@ -1,20 +1,34 @@
+let blogCommitments = model.blogPage;
+
 async function addBlog() {
     let input = {
         title: model.blogPage.title,
         description: model.blogPage.description
     };
 
-    let result = await callPhp(input);
+    return  await addBlogData(input);
 
-    console.log(result);
+
 }
 
-async function callPhp(obj) {
+async function addBlogData(obj) {
 
     let response = await axios.post('Blog/01_blogCommitment.php', obj);
     showText(response.data);
-    return response.data;
 
+
+   /* await getBlogData();*/
 
 }
+/*
+async function getBlogData() {
 
+    const response = await axios.get('Blog/01_blogCommitment.php');
+    blogComitments = response.data;
+    console.table(blogComitments);
+
+    blogCommitments = response.data.blogs;
+
+   showAllBlogs(); //til hovedsiden
+
+}*/

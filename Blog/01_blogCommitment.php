@@ -13,7 +13,9 @@ if (
     $returnValue->description = $description;
 
 } else {
-    $returnValue->errorMessage = "Angi URL-parametre, firstname og lastname";
+    $returnValue->errorMessage = "Angi URL-parametre, title and description";
     $returnValue->isError = true;
 }
 echo json_encode($returnValue);
+
+

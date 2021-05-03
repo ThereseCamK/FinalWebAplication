@@ -57,7 +57,8 @@ body {
 .blogs{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    height: 30vh;
+    overflow: scroll;
+    height: 40vh;
     width: 80vw;
     padding: 20px;
     text-align: center;
@@ -72,10 +73,15 @@ body {
 
 
 }
+.description{
+    height: 30vh;
+
+}
 .about{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    height: 30vh;
+    overflow: scroll;
+    height: 40vh;
     width: 80vw;
     padding: 20px;
     text-align: center;

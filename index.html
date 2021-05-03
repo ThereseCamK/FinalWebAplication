@@ -9,6 +9,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="Model.js"></script>
     <script src="Blog/BlogController.js"></script>
+    <script src="Project/ProjectController.js"></script>
+    <script src="Project/projectView.js"></script>
     <script src="Blog/blogView.js"></script>
     <link rel="stylesheet" href="Css/style.css">
 
@@ -17,7 +19,7 @@
 
 <body>
         <div id="app"></div>
-        <script src="AboutMe/aboutView.js"></script>
+
 <script >
     const appDiv = document.getElementById('app');
 
@@ -45,12 +47,12 @@ frontpage();
     function frontpage(){
             html = `
         <div class="container">
-                        <p>Mine verdier er  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
-                    </div>
+                        <p>Mine verdier er<br>  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
+        </div>
                <div class="blogs" onclick="changePage('blog')"> <h2> Blog </h2></div>
                <div class="about" onclick="changePage('about')"> <h2>Om meg </h2> </div>
                <div class="blogs" onclick="changePage('project')"> <h2>Prosjekter </h2> </div>
-                 <div class="about" onclick="changePage('review')"> <h2>Tilbakemeldinger </h2> </div>
+               <div class="about" onclick="changePage('review')"> <h2>Tilbakemeldinger </h2> </div>
             `;
          model.content = html;
         show()
@@ -63,6 +65,7 @@ frontpage();
         if (page === 'about') aboutView();
         if (page === 'blog') showBlogs();
         if (page === 'admin') adminShow();
+        if (page === 'adminAddProject') projectView();
         if (page === 'project') projectShow();
         if (page === 'review') feedback();
 
@@ -73,8 +76,8 @@ frontpage();
  <div onclick="window.location.reload()"> <h3> Tilbake </h3> </div>
             <div class="aboutMe">
                         <div class="aboutText"> <h1>Litt Om Meg</h1>
-                        <p>  Jeg er ei jente som er i Praksis på GET Academy som lærer i programmering <br>
-        Jeg har litt erfaring innenfor Javascript, HTML/CSS, C# og litt i SQL. Trives veldig godt med å utvikle forskjellige type ting. <br>
+                        <p>  Jeg er ei dame som er i Praksis på GET Academy som lærer i programmering <br>
+        Jeg har litt erfaring innenfor Javascript, HTML/CSS, C#, SQL, php . Trives utrolig godt med å skape noe fra ideer man har <br>
         Det som jeg har nå erfart er at man lærer veldig mye av å gjøre, og målet mitt er å gjøre enda mer og bli enda bedre! <br>
         Nå er jeg ute etter enda mer erfaring og har lyst til å hjelpe deg, med å lage en hjemmeside / app eller lignende ved siden av lærerjobben. <br>
         Ikke vær redd for å ta kontakt hvis dette kan være interessant eller om du er nyskjerrig.</p>
