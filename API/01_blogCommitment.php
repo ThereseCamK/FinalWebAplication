@@ -1,4 +1,5 @@
 <?php
+
 $inputJson = file_get_contents('php://input');
 $input = json_decode($inputJson);
 $returnValue = new stdClass();

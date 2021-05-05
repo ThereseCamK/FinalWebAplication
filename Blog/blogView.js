@@ -8,7 +8,7 @@ function blogView(){
       <input type="text" oninput="model.blogPage.title = this.value" />
         <br/>
        Beskrivelse: <br>
-       <textarea class="description"  oninput="model.blogPage.description = this.value" > </textarea>
+       <textarea class="description"  oninput="model.blogPage.description = this.value" ></textarea>
         <br/><br>
         <div onclick="addBlog()">Legg til </div>
 </div>
@@ -21,9 +21,10 @@ show();
 
 function showText(blogObj){
     let html= `<div class="blogs">
-<div onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
+        <div onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
         <div onclick="blogView()"> Legg til Ny Blogg</div> 
         <div onclick="adminShow()"> Hjem</div>
+        <hr>
         <div>Tittel: ${blogObj.title} </div> <br>
         <div>Beskrivelse: ${blogObj.description}</div>
         </div>

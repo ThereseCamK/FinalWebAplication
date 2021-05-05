@@ -9,8 +9,8 @@ async function addProject(){
 }
 
 async function addProjectData(proObj){
-    let blogresponse = await axios.post('Project/01_ProjectCommitment.php', proObj);
-    console.log(blogresponse.data, ' viser denne noe?')
+    let blogresponse = await axios.post('API/01_ProjectCommitment.php', proObj);
+    console.table(blogresponse.data, ' viser denne noe?')
     showProText(blogresponse.data);
 
 
