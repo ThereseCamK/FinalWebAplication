@@ -6,7 +6,7 @@ include_once '../classes/db.class.php';
 include_once '../classes/blog.class.php';
 
 $database = new db();
-$db = $database->Connect();
+$db = $database->connection();
 
 $items = new blog($db);
 
@@ -24,11 +24,14 @@ if($itemCount > 0){
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
 
-        $e = [
-            "title" => $title,
-            "description" => $description,
+        if (!empty($title) && !empty($description)) {
+                $e = [
+                    "title" => $title,
+                    "description" => $description,
 
-        ];
+                ];
+
+        }
 
         array_push($blogArr["body"], $e);
     }

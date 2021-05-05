@@ -66,7 +66,7 @@ frontpage();
         const page = model.currentPage;
         if (page === "adminAddBlog") blogView();
         if (page === 'about') aboutView();
-        if (page === 'blog') showBlogs();
+        if (page === 'blog') getBlogData();
         if (page === 'admin') adminShow();
         if (page === 'adminAddProject') projectView();
         if (page === 'project') projectShow();

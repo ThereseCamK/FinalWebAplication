@@ -17,18 +17,20 @@ async function addBlogData(obj) {
     showText(response.data);
     console.table(response.data)
 
-   /* await getBlogData();*/
-
 }
-/*
+
 async function getBlogData() {
 
-    const response = await axios.get('Blog/01_blogCommitment.php');
-    blogComitments = response.data;
-    console.table(blogComitments);
+    const response = await axios.get('API/read.php');
+    blogCommitments = response.data;
 
-    blogCommitments = response.data.blogs;
 
-   showAllBlogs(); //til hovedsiden
+    console.log(blogCommitments, 'fra controller')
+    console.log(blogCommitments.length, 'fra controller')
 
-}*/
+   await showAllBlogs(blogCommitments)
+
+
+
+
+}

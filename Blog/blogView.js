@@ -1,4 +1,4 @@
-
+let allBlogs = '';
 function blogView(){
     let html = `<div class="blogs">
 <div onclick="window.location.reload()"> <h3> Forside </h3> </div>
@@ -33,6 +33,8 @@ function showText(blogObj){
 show()
 }
 
+
+//UserView
 function showBlogs(){
 
 
@@ -43,9 +45,10 @@ function showBlogs(){
             
                  <h1 >Velkommen til min Blogg</h1>
                  <p >Noen hendelser som skjer i min hverdag</p>
-                 
-                 
+          
                 </div>
+                       
+              ${allBlogs}
                  </div>
                 
          
@@ -54,17 +57,26 @@ function showBlogs(){
     model.content = html;
     show();
 }
-//UserView
-/*${showAllBlogs()}
-function showAllBlogs(){
-    let blogs = model.blogPage.map(b => `
-      <div class="blogs">
-            
-                 <h1>${b.title}</h1>
-                 <p>${b.description}</p>
-                </div>
-    `)
 
-  return blogs;
 
-}*/
+function showAllBlogs(blogList){
+
+    for(let i =0; i < blogCommitments.length ; i++){
+        allBlogs+= `
+     
+             <div class="blogs">
+                 <h1>${blogList[i].title}</h1>
+                 <p>${blogList[i].description}</p></div>
+   `;
+    }
+
+
+
+    console.log(blogList, 'hva er dette')
+    console.log(blogList.length, ' hvor lang er lista')
+
+    showBlogs();
+
+
+
+}

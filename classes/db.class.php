@@ -6,7 +6,8 @@ class db{
     private $dbName = 'phprest';
 
     public $conn;
-    public function connect(){
+
+    public function connection(){
         $this->conn = null;
         try{
             $dsn = 'mysql:host='.$this->host . ';dbname=' .$this->dbName;

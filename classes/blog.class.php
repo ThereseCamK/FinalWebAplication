@@ -18,7 +18,7 @@ class blog
     public function getAllBlogs()
     {
         $sql = 'SELECT title, description FROM ' . $this->db_table . ' ';
-        $stmt = $this->connect()->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
 
