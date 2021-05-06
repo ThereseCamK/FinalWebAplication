@@ -37,7 +37,7 @@ class blog
         $this->description=htmlspecialchars(strip_tags($this->description));
 
         $stmt->bindParam(':title', $this->title);
-        $stmt->bindParam('description', $this->description);
+        $stmt->bindParam(':description', $this->description);
 
         if($stmt->execute()){
             return true;

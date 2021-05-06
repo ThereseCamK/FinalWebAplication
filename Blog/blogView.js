@@ -25,8 +25,8 @@ function showText(blogObj){
         <div onclick="blogView()"> Legg til Ny Blogg</div> 
         <div onclick="adminShow()"> Hjem</div>
         <hr>
-        <div>Tittel: ${blogObj.title} </div> <br>
-        <div>Beskrivelse: ${blogObj.description}</div>
+        <div>${blogObj} </div> <br>
+       
         </div>
         `;
     model.content = html;

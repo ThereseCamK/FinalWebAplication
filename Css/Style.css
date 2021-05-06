@@ -8,9 +8,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: url("https://www.gorspa.org/wp-content/uploads/Software.jpg");
     color: yellowgreen;
-
-    background-size: auto;
-    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .header {
