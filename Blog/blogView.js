@@ -61,7 +61,7 @@ function showBlogs(){
 
 function showAllBlogs(blogList){
 
-    for(let i =0; i < blogCommitments.length ; i++){
+    for(let i =0; i < blogList.length ; i++){
         allBlogs+= `
      
              <div class="blogs">
