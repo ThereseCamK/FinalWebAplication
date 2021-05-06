@@ -13,13 +13,13 @@ $items = new blog($db);
 $stmt = $items->getAllBlogs();
 $itemCount = $stmt->rowCount();
 
-echo json_encode($itemCount);
+
 
 if($itemCount > 0){
 
     $blogArr = array();
     $blogArr["body"] = array();
-    $blogArr["itemCount"] = $itemCount;
+
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);

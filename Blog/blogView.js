@@ -61,19 +61,17 @@ function showBlogs(){
 
 function showAllBlogs(blogList){
 
-    for(let i =0; i < blogList.length ; i++){
+    for(let i =0; i < blogList.body.length ; i++){
         allBlogs+= `
      
              <div class="blogs">
-                 <h1>${blogList[i].title}</h1>
-                 <p>${blogList[i].description}</p></div>
+                 <h1>${blogList.body[i].title}</h1>
+                 <p>${blogList.body[i].description}</p></div>
    `;
     }
 
 
 
-    console.log(blogList, 'hva er dette')
-    console.log(blogList.length, ' hvor lang er lista')
 
     showBlogs();
 

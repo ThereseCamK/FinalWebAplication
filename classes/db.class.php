@@ -13,7 +13,7 @@ class db{
             $dsn = 'mysql:host='.$this->host . ';dbname=' .$this->dbName;
             $this->conn =  new PDO($dsn, $this->user, $this->pwd);
             $this->conn ->exec('blog laget');
-            echo "Tilkobling suksess";
+
         } catch (PDOException $e){
             echo "Tilkobling feilet" . $e->getMessage();
         }
