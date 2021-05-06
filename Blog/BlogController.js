@@ -25,8 +25,7 @@ async function getBlogData() {
     blogCommitments = response.data;
 
 
-    console.log(blogCommitments, 'fra controller')
-    console.log(blogCommitments.body[0].title, 'lengde fra controller')
+
 
    await showAllBlogs(blogCommitments)
 
