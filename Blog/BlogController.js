@@ -21,7 +21,7 @@ async function addBlogData(obj) {
 
 async function getBlogData() {
 
-    const response = await axios.get('API/read.php');
+    const response = await axios.get('API/readBlog.php');
     blogCommitments = response.data;
 
 

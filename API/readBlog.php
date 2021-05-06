@@ -44,4 +44,3 @@ else{
         array("message" => "Ingen liste finnes.")
     );
 }
-?>

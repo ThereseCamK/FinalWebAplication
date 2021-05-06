@@ -70,11 +70,5 @@ function showAllBlogs(blogList){
    `;
     }
 
-
-
-
     showBlogs();
-
-
-
 }

@@ -28,10 +28,8 @@
 
     show();
     function  show(){
-
-
         html = `
-            <div >
+
             <div onclick="javascript:changePage('admin')" class="header">
 
 
@@ -39,7 +37,7 @@
                     <div >
                     ${model.content}
                     </div>
-            </div>
+
 
        `;
         appDiv.innerHTML = html;
@@ -49,13 +47,11 @@
 frontpage();
     function frontpage(){
             html = `
-        <div class="container">
-                        <p>Mine verdier er<br>  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
-        </div>
+ <p>Mine verdier er<br>  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p> <br>
                <div class="blogs" onclick="changePage('blog')"> <h2> Blog </h2></div>
-               <div class="about" onclick="changePage('about')"> <h2>Om meg </h2> </div>
+               <div class="blogs" onclick="changePage('about')"> <h2>Om meg </h2> </div>
                <div class="blogs" onclick="changePage('project')"> <h2>Prosjekter </h2> </div>
-               <div class="about" onclick="changePage('review')"> <h2>Tilbakemeldinger </h2> </div>
+               <div class="blogs" onclick="changePage('review')"> <h2>Tilbakemeldinger </h2>
             `;
          model.content = html;
         show()
@@ -69,7 +65,7 @@ frontpage();
         if (page === 'blog') getBlogData();
         if (page === 'admin') adminShow();
         if (page === 'adminAddProject') projectView();
-        if (page === 'project') projectShow();
+        if (page === 'project') getProjectData();
         if (page === 'review') feedback();
 
     }
@@ -78,13 +74,24 @@ frontpage();
         let html= `
  <div onclick="window.location.reload()"> <h3> Tilbake </h3> </div>
             <div class="aboutMe">
-                        <div class="aboutText"> <h1>Litt Om Meg</h1>
-                        <p>  Jeg er ei dame som er i Praksis på GET Academy som lærer i programmering <br>
-        Jeg har litt erfaring innenfor Javascript, HTML/CSS, C#, SQL, php . Trives utrolig godt med å skape noe fra ideer man har <br>
-        Det som jeg har nå erfart er at man lærer veldig mye av å gjøre, og målet mitt er å gjøre enda mer og bli enda bedre! <br>
-        Nå er jeg ute etter enda mer erfaring og har lyst til å hjelpe deg, med å lage en hjemmeside / app eller lignende ved siden av lærerjobben. <br>
-        Ikke vær redd for å ta kontakt hvis dette kan være interessant eller om du er nyskjerrig.</p>
+                        <div class="aboutText"> <h1>Therese Camilla Kjær</h1>
+                        <p>  Jeg er ei dame som jobber på GET Academy som lærer i programmering og med nøkkelkompetanser. <br>
+                        At jeg sitter her som IT-Utvikler hadde ingen trudd for noen år siden, personlig så jeg på alle som jobbet med dette som de smarte, og det var
+                        jo ikke meg: "JEG ER JO IKKE SMART!"- det var mine tanker. og hadde ingen fantasi om at jeg kunne klare noe av dette.
+                        MEN etter sykdom og måtte omskoleres fra kokke-yrket så var det ei som koblet interessene mine med at dette kunne være noe for meg, -"ALDRI VERDEN, JEG KAN JO INGENTING OM DATA!"-.
+                        Lovte å gi det ett forsøk, og fra første stund så har det vært full klaff, det har også vært tøft og utfordrende å lære programmering.
+                        Nå 1,5 år senere har jeg laget denne siden, og det er jeg rimelig stolt av!.
+
+                        MEN jeg er ikke ferdig å lære og vil gjerne hjelpe deg med små nettsider eller noe lignende for å få mer kompetanse!
+
+                        Kontakt meg gjerne for en uforpliktende prat!
+                        </p>
                         </div>
+            <br>
+          <p> KontaktInfo: </p>
+          <p>Tlf: 413 77 965</p>
+          <p>Epost: therese@getacademy.no</p>
+
             </div>
     `;
         model.content = html;

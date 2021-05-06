@@ -1,12 +1,16 @@
+let allProjects = '';
+
 function projectShow(){
     let html=` <div>
-                <div class="chosen" onclick="window.location.reload()"> <h3> Tilbake </h3> </div>
-                <div class="about">
+                <div class="chosen" onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
+                <div class="blogs">
             
                      <h1 >Velkommen til Mine Prosjekter</h1>
                     <p >Prosjekter som jeg har vært med på å lage </p>
                  
                 </div>
+                             
+              ${allProjects}
                 </div>      
 `;
     model.content = html;
@@ -29,7 +33,7 @@ function projectView(){
             <br/>
             
         link:<br>
-            <input type="text" oninput="model.projectPage.link = this.value" /><br>
+            <input type="url" oninput="model.projectPage.link = this.value" /><br>
             
         <div onclick="addProject()">Legg til </div>
 </div>
@@ -41,17 +45,39 @@ function projectView(){
 }
 
 function showProText(proObj){
-    let html= `<div class="about">
+    let html= `<div class="blogs">
 <div onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
         <div onclick="projectView()"> Legg til Nytt Prosjekt</div> 
      
         <div onclick="adminShow()"> Hjem</div> <br>
            <hr>
-        <div>Navn: ${proObj.projectName} </div> <br>
-        <div>Beskrivelse: ${proObj.content}</div><br>
-        <div>link: ${proObj.link}</div>
+      ${proObj}
         </div>
         `;
     model.content = html;
     show()
+}
+
+function showAllprojects(projectList){
+
+    for(let i =0; i < projectList.body.length ; i++){
+        allProjects+= `
+     
+             <div class="blogs" >
+                 <h3 onclick="showOneProject()">${projectList.body[i].projectName}</h3>
+              
+                  </div>`;
+    }
+    projectShow();
+}
+function showOneProject(){
+   allProjects =`
+          <div class="blogs" >
+                 <h3></h3>
+                  <div></div>
+              
+                  </div>
+    `;
+    projectShow();
+
 }

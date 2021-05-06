@@ -1,3 +1,5 @@
+let projectCommitments = model.projectPage;
+
 async function addProject(){
     let projectinput = {
         projectName: model.projectPage.projectName,
@@ -9,9 +11,17 @@ async function addProject(){
 }
 
 async function addProjectData(proObj){
-    let blogresponse = await axios.post('API/01_ProjectCommitment.php', proObj);
+    let blogresponse = await axios.post('API/createProject.php', proObj);
     console.table(blogresponse.data, ' viser denne noe?')
     showProText(blogresponse.data);
 
 
+}
+
+async function getProjectData(){
+
+    const projectResponse = await axios.get('API/readProject.php');
+    projectCommitments = projectResponse.data;
+
+    await showAllprojects(projectCommitments);
 }

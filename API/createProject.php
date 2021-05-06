@@ -6,22 +6,23 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 include_once '../classes/db.class.php';
-include_once '../classes/blog.class.php';
+include_once '../classes/project.class.php';
 
 $database = new db();
 $db = $database->connection();
 
-$item = new blog($db);
+$projectItem = new project($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-$item->title = $data->title;
-$item->description = $data->description;
+$projectItem->projectName = $data->projectName;
+$projectItem->content = $data->content;
+$projectItem->link = $data->link;
 
-if($item->createNewBlog()){
-    echo 'Ny blogg laget';
+if($projectItem->createNewProject()){
+    echo 'Nytt prosjekt laget';
 }
 else {
-    echo 'Kunne ikke lage ny blogg';
+    echo 'Kunne ikke lage nytt Prosjekt';
 }
 
