@@ -25,11 +25,12 @@ if($itemCount > 0){
         extract($row);
 
         if (!empty($title) && !empty($description)) {
-                $e = [
+                $e = array(
+
                     "title" => $title,
                     "description" => $description,
 
-                ];
+                );
 
         }
 

@@ -25,3 +25,10 @@ async function getProjectData(){
 
     await showAllprojects(projectCommitments);
 }
+
+async function getOneProject(id){
+
+    const singleResponse = await axios.get('API/single_readProject.php', id);
+    console.log(singleResponse.data)
+    showOneProject(singleResponse.data);
+}

@@ -4,7 +4,7 @@ class project{
     private $conn;
 
     private $db_ProTable = 'projects';
-
+    public $id;
     public $projectName;
     public $content;
     public $link;
@@ -14,7 +14,7 @@ class project{
     }
 
     public function getAllProjects(){
-        $sql = 'SELECT projectName, content, link FROM '. $this->db_ProTable . ' ';
+        $sql = 'SELECT id, projectName, content, link FROM '. $this->db_ProTable . ' ';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
@@ -42,5 +42,23 @@ class project{
             return true;
         }
         return  false;
+    }
+    public function getSingleProject(){
+        $sqlQuery = " SELECT
+        id, projectName, content, link
+        FROM
+        "   .$this->db_ProTable . "
+        WHERE id = ?
+        LIMIT 0,1" ;
+
+        $stmt = $this->conn->prepare($sqlQuery);
+
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+        $datarow = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->projectName = $datarow['projectName'];
+        $this->content = $datarow['content'];
+        $this->link = $datarow['link'];
     }
 }

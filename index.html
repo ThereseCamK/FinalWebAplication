@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebPage</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="Model.js"></script>
     <script src="Blog/BlogController.js"></script>
     <script src="Project/ProjectController.js"></script>
@@ -30,7 +31,11 @@
     function  show(){
         html = `
 
-            <div onclick="javascript:changePage('admin')" class="header">
+            <div onclick="javascript:changePage('admin')" class="header"> <br>
+        <a href="#" class="fa">&#9813;</a>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-github"></a>
 
 
             </div>
@@ -89,8 +94,8 @@ frontpage();
                         </div>
             <br>
           <p> KontaktInfo: </p>
-          <p>Tlf: 413 77 965</p>
-          <p>Epost: therese@getacademy.no</p>
+          <p>&#9743; 413 77 965</p>
+          <p>&#9993; therese@getacademy.no</p>
 
             </div>
     `;

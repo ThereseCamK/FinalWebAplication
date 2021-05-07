@@ -61,12 +61,14 @@ function showProText(proObj){
 function showAllprojects(projectList){
 
     for(let i =0; i < projectList.body.length ; i++){
+        let id = projectList.body[i].id;
         allProjects+= `
      
              <div class="blogs" >
-                 <h3 onclick="showOneProject()">${projectList.body[i].projectName}</h3>
+                 <h3 onclick="getOneProject(${id})">${projectList.body[i].projectName}</h3>
               
                   </div>`;
+        console.log(id, ' er dette id? ')
     }
     projectShow();
 }

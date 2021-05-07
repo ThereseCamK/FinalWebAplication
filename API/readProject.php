@@ -22,8 +22,10 @@ if($projectCount > 0){
     while ($projectRow = $projectStmt->fetch(PDO::FETCH_ASSOC)){
         extract($projectRow);
 
-        if (!empty($projectName) && !empty($content) && !empty($link)) {
+        if (!empty($projectName) && !empty($content) && !empty($link)
+        && !empty($id)) {
             $e = [
+                "id" => $id,
                 "projectName" => $projectName,
                 "content" => $content,
                 "link" => $link
