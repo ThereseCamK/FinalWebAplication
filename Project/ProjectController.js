@@ -28,7 +28,7 @@ async function getProjectData(){
 
 async function getOneProject(id){
 
-    const singleResponse = await axios.get('API/single_readProject.php', id);
+    const singleResponse = await axios.get(`API/single_readProject.php/?id=${id}`);
     console.log(singleResponse.data)
-    showOneProject(singleResponse.data);
+   await  showOneProject(singleResponse.data);
 }

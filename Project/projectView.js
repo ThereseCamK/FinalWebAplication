@@ -72,11 +72,12 @@ function showAllprojects(projectList){
     }
     projectShow();
 }
-function showOneProject(){
+function showOneProject(singleProject){
    allProjects =`
           <div class="blogs" >
-                 <h3></h3>
-                  <div></div>
+                 <h3>${singleProject.projectName}</h3>
+                 <div>${singleProject.content}</div>
+                 <div>${singleProject.link}</div>
               
                   </div>
     `;
