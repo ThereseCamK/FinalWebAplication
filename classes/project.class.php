@@ -61,4 +61,31 @@ class project{
         $this->content = $datarow['content'];
         $this->link = $datarow['link'];
     }
+
+    public function updateProject(){
+        $sqlUpdateQuery = " UPDATE
+        ". $this->db_ProTable . "
+        SET 
+                projectName =:projectName,
+                content = :content,
+                link = :link
+        WHERE
+                id = :id";
+
+        $updateProjectStmt = $this->conn->prepare($sqlUpdateQuery);
+
+        $this->projectName=htmlspecialchars(strip_tags($this->projectName));
+        $this->content=htmlspecialchars(strip_tags($this->content));
+        $this->link=htmlspecialchars(strip_tags($this->link));
+
+        $updateProjectStmt->bindParam(":projectName", $this->projectName);
+        $updateProjectStmt->bindParam(":content", $this->content);
+        $updateProjectStmt->bindParam(":link", $this->link);
+        $updateProjectStmt->bindParam(":id", $this->id);
+
+        if($updateProjectStmt->execute()){
+            return true;
+        }
+        return false;
+    }
 }

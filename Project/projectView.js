@@ -75,9 +75,10 @@ function showAllprojects(projectList){
 function showOneProject(singleProject){
    allProjects =`
           <div class="blogs" >
-                 <h3>${singleProject.projectName}</h3>
-                 <div>${singleProject.content}</div>
-                 <div>${singleProject.link}</div>
+                 <h2>${singleProject.projectName}</h2>
+                 <hr>
+                 <div>${singleProject.content}</div> <br><br>
+                 <a href="${singleProject.link}" class="fa"> Link til side</a>
               
                   </div>
     `;

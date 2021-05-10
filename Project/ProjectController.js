@@ -15,7 +15,6 @@ async function addProjectData(proObj){
     console.table(blogresponse.data, ' viser denne noe?')
     showProText(blogresponse.data);
 
-
 }
 
 async function getProjectData(){
