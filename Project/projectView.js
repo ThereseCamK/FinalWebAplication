@@ -1,6 +1,8 @@
 let allProjects = '';
 let userview = ` <h1 >Velkommen til Mine Prosjekter</h1>
                     <p >Prosjekter som jeg har vært med på å lage </p>`;
+
+
 function projectShow(){
     let html=` <div>
                 <div class="chosen" onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
@@ -11,6 +13,7 @@ function projectShow(){
                 </div>
                              
               ${allProjects}
+            
                 </div>      
 `;
     model.content = html;
@@ -63,7 +66,7 @@ function showAllprojects(projectList){
 
     for(let i =0; i < projectList.body.length ; i++){
         let id = projectList.body[i].id;
-        allProjects+= `
+        allProjects = `
      
              <div class="blogs" >
                  <h3 onclick="getOneProject(${id})">${projectList.body[i].projectName}</h3>
@@ -76,16 +79,16 @@ function showAllprojects(projectList){
 }
 function showOneProject(singleProject){
 
-   allProjects =`
+    allProjects = `
           <div class="blogs" >
                  <h2>${singleProject.projectName}</h2>
                  <hr>
                  <div>${singleProject.content}</div> <br><br>
                  <a href="${singleProject.link}}" class="fa">LINK TIL SIDE</a>
-                 <p style="text-align: right" onclick="editView(${singleProject.id})">&#9881</p>
-                 <p onclick="deleteProjectData(${singleProject.id})"> slett</p>
-                     
-               
+                 <div style="text-align: right" >
+                 <h5 onclick="editView(${singleProject.id})">&#9881</h5>
+                 <h5 onclick="deleteProjectData(${singleProject.id})">&#10799</h5>
+                   </div>
                   </div>
     `;
    console.log(singleProject)
@@ -114,7 +117,13 @@ function editView(singleProjectId){
 
 }
 function editProject(){
-    userview = ' ADMIN ';
-    allProjects = ` oppdatert `;
-    projectShow();
+    userview = ' oppdatert ';
+    return allProjects;
+
+}
+function showDeletedProject(){
+
+   userview = ' Prosjekt Slettet';
+   return allProjects;
+
 }

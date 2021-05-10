@@ -46,10 +46,10 @@ async function editProjectData(udateid){
 
 }
 async function deleteProjectData(proID){
-
-        const response = await axios.delete('API/delete_project.php', proID);
+    let obj = {
+        id: proID,
+    }
+        const response = await axios.post('API/delete_project.php', obj);
         console.log(response.data);
-
-
-
+    showDeletedProject();
 }
