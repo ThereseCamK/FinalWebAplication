@@ -1,12 +1,12 @@
 let allProjects = '';
-
+let userview = ` <h1 >Velkommen til Mine Prosjekter</h1>
+                    <p >Prosjekter som jeg har vært med på å lage </p>`;
 function projectShow(){
     let html=` <div>
                 <div class="chosen" onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
                 <div class="blogs">
             
-                     <h1 >Velkommen til Mine Prosjekter</h1>
-                    <p >Prosjekter som jeg har vært med på å lage </p>
+                    ${userview}
                  
                 </div>
                              
@@ -19,6 +19,7 @@ function projectShow(){
 
 
 function projectView(){
+    userview = 'ADMIN';
     let html = `<div class="blogs">
 <div onclick="window.location.reload()"> <h3> Forside </h3> </div>
 
@@ -66,22 +67,54 @@ function showAllprojects(projectList){
      
              <div class="blogs" >
                  <h3 onclick="getOneProject(${id})">${projectList.body[i].projectName}</h3>
-              
-                  </div>`;
+             
+                  </div>
+`;
         console.log(id, ' er dette id? ')
     }
     projectShow();
 }
 function showOneProject(singleProject){
+
    allProjects =`
           <div class="blogs" >
                  <h2>${singleProject.projectName}</h2>
                  <hr>
                  <div>${singleProject.content}</div> <br><br>
-                 <a href="${singleProject.link}" class="fa"> Link til side</a>
-              
+                 <a href="${singleProject.link}}" class="fa">LINK TIL SIDE</a>
+                 <p style="text-align: right" onclick="editView(${singleProject.id})">&#9881</p>
+                 <p onclick="deleteProjectData(${singleProject.id})"> slett</p>
+                     
+               
                   </div>
     `;
+   console.log(singleProject)
     projectShow();
 
+}
+function editView(singleProjectId){
+    userview = ` id: ${singleProjectId} `;
+    allProjects = `
+           
+       Navn: <br>
+            <input type="text" oninput="model.projectPage.projectName = this.value"  />
+            <br/>
+            
+        Beskrivelse: <br>
+            <textarea class="description"  oninput="model.projectPage.content= this.value" ></textarea>
+            <br/>
+            
+        link:<br>
+            <input type="url" oninput="model.projectPage.link = this.value"  /><br>
+            
+             <div onclick="editProjectData(${singleProjectId})"> OPPDATER </div>
+    `;
+
+    projectShow();
+
+}
+function editProject(){
+    userview = ' ADMIN ';
+    allProjects = ` oppdatert `;
+    projectShow();
 }
