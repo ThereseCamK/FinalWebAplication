@@ -51,5 +51,5 @@ async function deleteProjectData(proID){
     }
         const response = await axios.post('API/delete_project.php', obj);
         console.log(response.data);
-    showDeletedProject();
+    showDeletedProject(response.data);
 }

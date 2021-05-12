@@ -1,9 +1,9 @@
 <?php
 class db{
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pwd = '';
-    private $dbName = 'phprest';
+    private $host = 'thereseck.one.mysql';
+    private $user = 'thereseck_onewebapi';
+    private $pwd = 'bollekokko3096';
+    private $dbName = 'thereseck_onewebapi';
 
     public $conn;
 
@@ -12,13 +12,11 @@ class db{
         try{
             $dsn = 'mysql:host='.$this->host . ';dbname=' .$this->dbName;
             $this->conn =  new PDO($dsn, $this->user, $this->pwd);
-            $this->conn ->exec('blog laget');
+            $this->conn ->exec('tilkobling');
 
         } catch (PDOException $e){
             echo "Tilkobling feilet" . $e->getMessage();
         }
-
-
 
         return$this->conn;
     }

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebPage</title>
+    <title>Therese Camilla Kjær</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="Model.js"></script>
@@ -29,10 +29,13 @@
 
     show();
     function  show(){
-        html = `
+        let editVisibilityforAdmin = model.login.admin === true ? ' ': 'visibility: hidden';
+
+        appDiv.innerHTML = `
 
             <div  class="header"> <br>
-        <a href="#" onclick="javascript:changePage('admin')" class="fa">&#9813;</a>
+            <a href="#" ${editVisibilityforAdmin} onclick="window.location.reload()" >&#9760;</a>
+        <a href="#" onclick="javascript:changePage('adminlogIn')" class="fa">&#9813;</a>
         <a href="https://www.facebook.com/therese.nordnes.58/" class="fa fa-facebook"></a>
         <a href="https://www.linkedin.com/in/therese-camilla-kj%C3%A6r-3a223420b/" class="fa fa-linkedin"></a>
         <a href="https://github.com/ThereseCamK?tab=repositories" class="fa fa-github"></a>
@@ -45,7 +48,6 @@
 
 
        `;
-        appDiv.innerHTML = html;
     }
 
 
@@ -65,6 +67,7 @@ frontpage();
 
     function updateView() {
         const page = model.currentPage;
+        if (page === "adminlogIn") logIn();
         if (page === "adminAddBlog") blogView();
         if (page === 'about') aboutView();
         if (page === 'blog') getBlogData();
@@ -74,6 +77,16 @@ frontpage();
         if (page === 'review') feedback();
 
     }
+    function logIn(){
+        let html = `
+        <input type="text" oninput="model.login.username = this.value" placeholder="Brukernavn"/>
+         <input type="password" oninput="model.login.password = this.value" placeholder="Passord"/>
+         <button type="submit" onclick="changePage('admin')"> Log Inn</button>
+        `;
+        model.content = html;
+        show()
+    }
+
     function aboutView(){
 
         let html= `
@@ -108,14 +121,32 @@ function changePage(page){
 }
 //adminView
     function adminShow(){
-        let html = `<div class="blogs">
-<div onclick="window.location.reload()"> <h6> Forsiden </h6> </div>
+        let username = model.login.username;
+        let password = model.login.password;
+        for(let user of model.users){
+            if (user.username === username && user.password === password){
+                model.login.loggedInUser = username;
+                model.login.admin = true
+                model.content  = `<div class="blogs">
+                    <div>  Admin: ${username}  <div>
+
                     <h3 onclick="changePage('adminAddBlog')"> legg til blogg </h3><br>
-                    <h3 onclick="changePage('adminAddProject')"> legg til Prosjekt </h3>
+                    <h3 onclick="changePage('adminAddProject')"> legg til Prosjekt </h3><br>
+                    <h3 onclick="changePage('project')">  Vis Prosjekter  </h3>
+
                     </div>
       `;
-        model.content = html;
-        show()
+                model.login.loggedInUser = username;
+                show()
+            }
+            else {
+               alert('feil brukernavn/ og eller passord')
+
+            }
+        }
+
+
+
     }
 
 

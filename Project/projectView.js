@@ -1,14 +1,16 @@
 let allProjects = '';
-let userview = ` <h1 >Velkommen til Mine Prosjekter</h1>
-                    <p >Prosjekter som jeg har vært med på å lage </p>`;
-
+let editVisibilityforAdmin = model.login.admin === true ? ' ': 'visibility: hidden';
+let editVisibilityforUsers = model.login.admin === false ? '': 'visibility: hidden';
 
 function projectShow(){
+
     let html=` <div>
-                <div class="chosen" onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
-                <div class="blogs">
-            
-                    ${userview}
+                 <h5 ${editVisibilityforUsers} onclick="window.location.reload()"> Forsiden </h5>
+               
+                <div ${editVisibilityforUsers}  class="blogs">
+                
+                    <h1 ${editVisibilityforUsers}>Velkommen til Mine Prosjekter</h1>
+                    <p ${editVisibilityforUsers}>Prosjekter som jeg har vært med på å lage </p>
                  
                 </div>
                              
@@ -22,12 +24,9 @@ function projectShow(){
 
 
 function projectView(){
-    userview = 'ADMIN';
-    let html = `<div class="blogs">
-<div onclick="window.location.reload()"> <h3> Forside </h3> </div>
 
-        <div onclick="adminShow()">Tilbake</div><br>
-        
+    let html = `   <h5 class="fa " onclick="changePage('admin')">&#11013; </h5>
+<div class="blogs">        
         Navn: <br>
             <input type="text" oninput="model.projectPage.projectName = this.value" />
             <br/>
@@ -49,8 +48,9 @@ function projectView(){
 }
 
 function showProText(proObj){
-    let html= `<div class="blogs">
-<div onclick="window.location.reload()"> <h3> Forsiden </h3> </div>
+    let html= `  <h5 class="fa " onclick="changePage('admin')">&#11013; </h5>
+<div class="blogs">
+<div onclick="window.location.reload()" > </div>
         <div onclick="projectView()"> Legg til Nytt Prosjekt</div> 
      
         <div onclick="adminShow()"> Hjem</div> <br>
@@ -63,10 +63,10 @@ function showProText(proObj){
 }
 
 function showAllprojects(projectList){
-
+allProjects = `  <h5  ${editVisibilityforAdmin } onclick="changePage('admin')">&#11013; </h5> `
     for(let i =0; i < projectList.body.length ; i++){
         let id = projectList.body[i].id;
-        allProjects = `
+        allProjects += `
      
              <div class="blogs" >
                  <h3 onclick="getOneProject(${id})">${projectList.body[i].projectName}</h3>
@@ -79,15 +79,20 @@ function showAllprojects(projectList){
 }
 function showOneProject(singleProject){
 
+
+
     allProjects = `
+        
+           
           <div class="blogs" >
-                 <h2>${singleProject.projectName}</h2>
-                 <hr>
+             <h5 style="text-align: left; font-size: 20px; color:hotpink" onclick="getProjectData()">&#11013; </h5>
+                   <h2>${singleProject.projectName}</h2><br>
+          
                  <div>${singleProject.content}</div> <br><br>
                  <a href="${singleProject.link}}" class="fa">LINK TIL SIDE</a>
                  <div style="text-align: right" >
-                 <h5 onclick="editView(${singleProject.id})">&#9881</h5>
-                 <h5 onclick="deleteProjectData(${singleProject.id})">&#10799</h5>
+                 <h4  onclick="editView(${singleProject.id})">&#9881</h4>
+                 <h4  onclick="deleteProjectData(${singleProject.id})">&#10799</h4>
                    </div>
                   </div>
     `;
@@ -96,9 +101,11 @@ function showOneProject(singleProject){
 
 }
 function editView(singleProjectId){
-    userview = ` id: ${singleProjectId} `;
-    allProjects = `
+
+    allProjects = ` <h5 ${editVisibilityforAdmin } onclick="getOneProject(${singleProjectId})">&#11013; </h5>
+            <div class="blogs" > Endre id: ${singleProjectId} </div>
            
+          <div class="blogs" >
        Navn: <br>
             <input type="text" oninput="model.projectPage.projectName = this.value"  />
             <br/>
@@ -111,6 +118,7 @@ function editView(singleProjectId){
             <input type="url" oninput="model.projectPage.link = this.value"  /><br>
             
              <div onclick="editProjectData(${singleProjectId})"> OPPDATER </div>
+           </div>
     `;
 
     projectShow();
@@ -118,12 +126,15 @@ function editView(singleProjectId){
 }
 function editProject(){
     userview = ' oppdatert ';
-    return allProjects;
+    allProjects = '';
+    projectShow()
+
 
 }
-function showDeletedProject(){
+function showDeletedProject(txt){
 
-   userview = ' Prosjekt Slettet';
-   return allProjects;
+    userview = txt ;
+    allProjects = '';
+    projectShow()
 
 }
