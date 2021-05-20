@@ -5,6 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include_once '../classes/db.class.php';
 include_once '../classes/blog.class.php';
 
+
 $database = new db();
 $db = $database->connection();
 
@@ -24,11 +25,13 @@ if($itemCount > 0){
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
 
-        if (!empty($title) && !empty($description)) {
+        if (!empty($title) && !empty($id) && !empty($description) && !empty($created) ) {
                 $e = array(
-
-                    "title" => $title,
-                    "description" => $description,
+                    "id" =>$row['id'],
+                    "title" => $row['title'],
+                    "description" => $row['description'],
+                    "file" => empty($row['file']) ? null : $row['file'],
+                    "created" => $row['created'],
 
                 );
 
@@ -44,4 +47,7 @@ else{
     echo json_encode(
         array("message" => "Ingen liste finnes.")
     );
+
 }
+
+

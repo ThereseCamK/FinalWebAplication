@@ -32,17 +32,19 @@ async function getOneProject(id){
    await  showOneProject(singleResponse.data);
 }
 
-async function editProjectData(udateid){
+async function editProjectData(updateid){
     let updateObj = {
-        id: udateid,
+        id: updateid,
         projectName: model.projectPage.projectName,
         content: model.projectPage.content,
         link: model.projectPage.link
 
     }
     const editProjectResponse = await axios.post('API/updateProject.php', updateObj);
-    console.table(editProjectResponse.data, "hva viser ");
-    editProject();
+
+    console.table(editProjectResponse.data, "hva viser fra editProject ");
+
+    editProject(updateid);
 
 }
 async function deleteProjectData(proID){
@@ -51,5 +53,5 @@ async function deleteProjectData(proID){
     }
         const response = await axios.post('API/delete_project.php', obj);
         console.log(response.data);
-    showDeletedProject(response.data);
+    showDeletedProject();
 }

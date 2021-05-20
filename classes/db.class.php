@@ -1,9 +1,14 @@
 <?php
 class db{
-    private $host = 'thereseck.one.mysql';
+   /* private $host = 'thereseck.one.mysql';
     private $user = 'thereseck_onewebapi';
     private $pwd = 'bollekokko3096';
-    private $dbName = 'thereseck_onewebapi';
+    private $dbName = 'thereseck_onewebapi';*/
+
+    private $host = 'localhost';
+    private $user = 'root';
+    private $pwd = '';
+    private $dbName = 'phprest';
 
     public $conn;
 

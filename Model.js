@@ -1,7 +1,7 @@
 
 
 const model = {
-    admin: false,
+    admin: true,
     login:{
         loggedInUser: null,
         username: '',
@@ -9,17 +9,19 @@ const model = {
         admin: false,
     },
     users:[{
-        username: 'therese',
-        password: 'bollekokko',
+        username: 't',
+        password: 'b',
         admin: true,
     }
     ],
     content: '',
     currentPage: 'frontpage',
-    strengthArray :['Lærevillig', 'Kreativ', 'Nyskjerrig', 'Ærlig', 'Tillit' ],
+    strengthArray :['Lærevillig', 'Kreativ', 'Nysgjerrig', 'Ærlig', 'Tillit' ],
     blogPage: {
         title: ' ',
         description: '',
+        file: null,
+        created: '',
     },
 
     projectPage: {

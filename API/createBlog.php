@@ -17,6 +17,8 @@ $data = json_decode(file_get_contents("php://input"));
 
 $item->title = $data->title;
 $item->description = $data->description;
+$item->file = $data->file;
+$item->created = date('d-m-Y H:i:s');
 
 if($item->createNewBlog()){
     echo 'Ny blogg laget';

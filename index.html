@@ -58,7 +58,7 @@ frontpage();
                <div class="blogs" onclick="changePage('blog')"> <h2> Blog </h2></div>
                <div class="blogs" onclick="changePage('about')"> <h2>Om meg </h2> </div>
                <div class="blogs" onclick="changePage('project')"> <h2>Prosjekter </h2> </div>
-               <div class="blogs" onclick="changePage('review')"> <h2>Tilbakemeldinger </h2>
+
             `;
          model.content = html;
         show()
@@ -74,14 +74,16 @@ frontpage();
         if (page === 'admin') adminShow();
         if (page === 'adminAddProject') projectView();
         if (page === 'project') getProjectData();
-        if (page === 'review') feedback();
+
 
     }
     function logIn(){
         let html = `
+<div onclick="window.location.reload()"> <h3> Tilbake </h3> </div>
+<div class="blogs">
         <input type="text" oninput="model.login.username = this.value" placeholder="Brukernavn"/>
          <input type="password" oninput="model.login.password = this.value" placeholder="Passord"/>
-         <button type="submit" onclick="changePage('admin')"> Log Inn</button>
+         <button type="submit" onclick="changePage('admin')"> Log Inn</button> </div>
         `;
         model.content = html;
         show()

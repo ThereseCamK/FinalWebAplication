@@ -4,10 +4,10 @@
 
 body {
     font-family: Consolas, fantasy;
-    background-image: url("https://www.gorspa.org/wp-content/uploads/Software.jpg");
+    background-image: url("https://image.freepik.com/free-photo/programming-code-abstract-technology-background-software-developer-computer-script_34663-31.jpg");
     color: hotpink;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,19 +89,13 @@ body {
 
 .aboutText{
     text-align: left;
-
+        font-size: 15px;
     width: 40vw;
+    height: 300px;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(255,255,255, 0.6); /* Black w/opacity/see-through */
-
-    overflow: hidden;
-}
-@media (max-width:  590px){
-    .aboutText{
-        text-align: center;
-        width: auto;
-        overflow: hidden;
-    }
+    padding: 20px;
+    overflow: scroll;
 }
 .aboutMe{
     background-image: url("https://github.com/ThereseCamK/FinalWebAplication/blob/main/tck-removebg-preview.png?raw=true");
@@ -115,6 +109,29 @@ body {
     width: 80vw;
     color:black;
 
+}
+
+@media (max-width:  590px){
+    .aboutText{
+        text-align: center;
+        width: auto;
+        height: 60vh;
+        overflow: scroll;
+        font-size: 15px;
+
+
+
+    }
+    .aboutMe{
+        background-image: none;
+    }
+}
+.aboutText::-webkit-scrollbar {
+    display: none;
+}
+.aboutText {
+    -ms-overflow-style: none;  /
+scrollbar-width: none;
 }
 .container p span.cursor {
     display: inline-block;

@@ -1,8 +1,9 @@
 let allProjects = '';
-let editVisibilityforAdmin = model.login.admin === true ? ' ': 'visibility: hidden';
-let editVisibilityforUsers = model.login.admin === false ? '': 'visibility: hidden';
+
+
 
 function projectShow(){
+    const editVisibilityforUsers = model.login.admin === false ? ' ': 'visibility: hidden';
 
     let html=` <div>
                  <h5 ${editVisibilityforUsers} onclick="window.location.reload()"> Forsiden </h5>
@@ -63,8 +64,9 @@ function showProText(proObj){
 }
 
 function showAllprojects(projectList){
+    const editVisibilityforAdmin = model.login.admin === true ? ' ': 'visibility: hidden';
 allProjects = `  <h5  ${editVisibilityforAdmin } onclick="changePage('admin')">&#11013; </h5> `
-    for(let i =0; i < projectList.body.length ; i++){
+    for(let i = 0; i < projectList.body.length ; i++){
         let id = projectList.body[i].id;
         allProjects += `
      
@@ -79,20 +81,20 @@ allProjects = `  <h5  ${editVisibilityforAdmin } onclick="changePage('admin')">&
 }
 function showOneProject(singleProject){
 
-
+    const editVisibilityforAdmin = model.login.admin === true ? ' ': 'visibility: hidden';
 
     allProjects = `
         
-           
+                <h5 style="text-align: left; font-size: 20px; color:hotpink" onclick="getProjectData()">&#11013; </h5>
           <div class="blogs" >
-             <h5 style="text-align: left; font-size: 20px; color:hotpink" onclick="getProjectData()">&#11013; </h5>
+        
                    <h2>${singleProject.projectName}</h2><br>
           
                  <div>${singleProject.content}</div> <br><br>
                  <a href="${singleProject.link}}" class="fa">LINK TIL SIDE</a>
                  <div style="text-align: right" >
-                 <h4  onclick="editView(${singleProject.id})">&#9881</h4>
-                 <h4  onclick="deleteProjectData(${singleProject.id})">&#10799</h4>
+                 <h4 style="padding-right: 30px;" ${editVisibilityforAdmin} onclick="editView(${singleProject.id})">&#9881</h4>
+                 <h4 style="padding-right: 30px;" ${editVisibilityforAdmin} onclick="deleteProjectData(${singleProject.id})">&#10799</h4>
                    </div>
                   </div>
     `;
@@ -101,7 +103,7 @@ function showOneProject(singleProject){
 
 }
 function editView(singleProjectId){
-
+    const editVisibilityforAdmin = model.login.admin === true ? ' ': 'visibility: hidden';
     allProjects = ` <h5 ${editVisibilityforAdmin } onclick="getOneProject(${singleProjectId})">&#11013; </h5>
             <div class="blogs" > Endre id: ${singleProjectId} </div>
            
@@ -124,17 +126,19 @@ function editView(singleProjectId){
     projectShow();
 
 }
-function editProject(){
-    userview = ' oppdatert ';
-    allProjects = '';
+function editProject(singleProjectId){
+    model.admin = true;
+    allProjects = ` <h5  onclick="getOneProject(${singleProjectId})">&#11013; </h5>
+            <div class="blogs" > Prosjekt oppdatert</div>`
     projectShow()
 
 
 }
-function showDeletedProject(txt){
+function showDeletedProject(){
 
-    userview = txt ;
-    allProjects = '';
+
+    allProjects = ` <h5  onclick="getProjectData()">&#11013; </h5>
+            <div class="blogs" > Prosjekt slettet</div>`
     projectShow()
 
 }
